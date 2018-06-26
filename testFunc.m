@@ -7,4 +7,3 @@ if inputArg1(inputArg2) > thresh
 else
     outputVar = 0;
 end
-
