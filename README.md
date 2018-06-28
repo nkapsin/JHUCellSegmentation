@@ -1,2 +1,2 @@
 # JHUCellSegmentation
-For sharing cell segmentation files
+For sharing/editing cell segmentation files
