@@ -3,7 +3,7 @@ profile on;
 
 %{
 This program runs the Spect function. It's largely purposed to accept
-various user inputs
+various user inputs 
 %}
 
 %Parameters don't need to be typed in again if only some of the code is
@@ -18,6 +18,7 @@ if resetP
     %used. (e.g. [1 1] will make the segment have the pixel at [1 1] in the upper left corner
     segLength = input('Enter length of square segment: '); %All segments are square
     sigm = input('Enter sigma for intensity similarity: ');
+    eigNum = input('Enter number of eigenvectors: ');
     neighborCond = input('Make NN? (0/1) ');
     if neighborCond
         cutoff = -1;
@@ -43,7 +44,7 @@ if resetP
     end 
 end
 
-[eVecs, Lrw, wM, eVals] = Spect(fileName,startCoords,segLength,sigm,neighborCond,NNnum,randCond,randNum,distCond,cutoff,sigmDist);
+[eVecs, Lrw, wM, eVals] = Spect(fileName,startCoords,segLength,sigm,neighborCond,NNnum,randCond,randNum,distCond,cutoff,sigmDist,eigNum);
 
 %{
 Putting a very low sigma value seems to work for showing the small dark

@@ -41,13 +41,14 @@ end
 fullIm = zeros(800,800);
 eigHolder = zeros(200*200, eigNum, 16);
 centHolder = zeros(kNum,eigNum,16);
+baseIm = imread(fileName,25);
 
 for i = 1:4
     for j = 1:4
     
     disp(['i = ' num2str(i) ', j = ' num2str(j)]);
     tic;
-    [curEvects, ~, ~, ~] = Spect(fileName, [1+200*(i-1) 1+200*(j-1)],200,sigm,neighborCond,NNnum,randCond,randNum,distCond,cutoff,sigmDist,eigNum);
+    [curEvects, ~, ~, ~] = Spect(baseIm, [1+200*(i-1) 1+200*(j-1)],200,sigm,neighborCond,NNnum,randCond,randNum,distCond,cutoff,sigmDist,eigNum);
     [kMap, centroids] = kmeans(curEvects,kNum);
     fullIm(1+200*(i-1):200*i,1+200*(j-1):200*j) = reshape(kMap, [200 200]);
     fullIm(1+200*(i-1):200*i,1+200*(j-1):200*j) = fullIm(1+200*(i-1):200*i,1+200*(j-1):200*j) + kNum*(j+(i-1)*4-1);

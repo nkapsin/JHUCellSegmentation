@@ -16,7 +16,8 @@ for i = 1:length(valList)
     Rstep = 1;
     if indexList(i) ~= kFiller
         for j = 1:k
-            if j == 1
+            %disp(['i:' num2str(i) 'Lstep:' num2str(Lstep) 'Rstep:' num2str(Rstep)]);
+             if j == 1
                 sparseVal(j+k*(i-2)) = 1; %0
                 sparseCoords(j+k*(i-2),1) = indexList(i);
                 sparseCoords(j+k*(i-2),2) = indexList(i);
@@ -38,45 +39,3 @@ for i = 1:length(valList)
 end
 nSparse = sparse(sparseCoords(:,1), sparseCoords(:,2), sparseVal, imLength, imLength, imLength*k);
 nSparse = max(nSparse,nSparse');
-
-
-%{
-for  i = 1:length(sparseVal)
-    sparseVal(i) = exp(-sparseVal(i)^2/sigma^2);
-end
-%}
-
-
-%{
-AutoSigma = sigma;
-
-%Inflection at non-repeated median of non-zero entries
-
-
-for i = 1:imLength
-    %{
-    j = 1;
-    AutoSigma = 0;
-    tempVec = zeros(k,1);
-    f = 0;
-    lastNum = 0;
-    while j <= k
-        if sparseVal(k*(i-1)+j) ~= lastNum %0
-            f = f + 1;
-            tempVec(f) = sparseVal(k*(i-1)+j);
-            lastNum = sparseVal(k*(i-1)+j);
-        end
-        j = j+1;
-    end
-    if f == 0
-        AutoSigma = 0.5;
-    else
-        AutoSigma = 4*median(tempVec(1:f));
-    end
-    %}
-    for j = 1:k
-        sparseVal(k*(i-1)+j) = exp(-sparseVal(k*(i-1)+j)^2/AutoSigma^2);
-    end
-
-end
-%}

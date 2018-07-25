@@ -11,7 +11,7 @@ disparity = 0; %For subtracting when borders are hit
 %option to input a rectangular one should be preserved
 for i = 1:l(1)*l(2) %The linear index of each element
     for jo = -r:r %io and jo are used to check the elements around the one selected by i
-        for io = -r:r
+        for io = -r:r %Alternitavely, make io range from -sqrt(r^2 - jo^2):sqrt(r^2 - jo^2) for a more circular examination. This would make inserting points a little more difficult, though
             %Making sure the index hasn't looped around with the first
             %condidion
             %The second checks to see if j has put it out of bounds
