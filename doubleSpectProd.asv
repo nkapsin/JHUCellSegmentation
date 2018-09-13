@@ -216,11 +216,10 @@ for metType = 1:2
 end
 cd(['C:\Users\nathan\Documents\JHUImages\' dateName]);
 save(['qualHolder_' fileName(1:find(fileName == '.')-1) '_Sigma-' num2str(sigm) '_NNs-' num2str(NNnum) '_SRrad-' num2str(cutoff) '_SRsigm-' num2str(sigmDist) '_holes-' num2str(holesCond) '.mat'], 'qualHolder');
-%{
+
 numList = [1 14 25 39 50];
 list = [qualHolder23NN1 qualHolder23NN14 qualHolder23NN25 qualHolder23NN39 qualHolder23NN50 qualHolder23SR1 qualHolder23SR14 qualHolder23SR25 qualHolder23SR39 qualHolder23SR50];
-list2 = [qualHolder7NN1 qualHolder7NN14 qualHolder7NN25 qualHolder7NN39 qualHolder7NN50 qualHolder7SR1 qualHolder7SR14 qualHolder7SR25 qualHolder7SR39 qualHolder7SR50];
-list = [list list2];
+list2 = 
 for i = 1:length(list)
-    disp(max(reshape(list(i),[1 size(list(i),1)*size(list(i),2)])));
-    %}
+    disp(max(reshape(list(
+    
