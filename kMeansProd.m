@@ -80,7 +80,7 @@ for sliceInd = 1:length(sliceList)
         
         colormap(jet); curVisual = imagesc(curResult); colorbar; title(['Quality: ' interTitle '%, Light organelles ' holeTitle]);
         cd(['C:\Users\nathan\Documents\JHUImages\' dateName]);
-        saveas(curVisual,['db4_KMEANS_k_' num2str(k) '_Slice-' num2str(sliceNum)]);
+        saveas(curVisual,['db4_KMEANS_k_' num2str(k) '_Slice-' num2str(sliceNum) '.tif']);
         cd(curFold);
         
         disp(['Completed in ' num2str(toc) ' seconds.']);

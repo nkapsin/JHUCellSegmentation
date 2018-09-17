@@ -180,10 +180,14 @@ for metType = 1:2
                             intersection = 0;
                         end
 
+                        %{
                         interTitle = num2str(intersection);
                         titleCutoff = floor(log(intersection)/log(10))+1;
                         interTitle = interTitle(1:titleCutoff+2);
-
+                        %}
+                        
+                        interTitle = num2str(intersection);
+                        
                         confHolder{metType,sliceIndex,varEigs,varK-1,varSectK/5-1} = confMat;
 
                         disp('Saving...');
